@@ -38,7 +38,7 @@ TStr.set_t_str_suffix(mysuffix, myfunc)
 
 @assert t"2024 Feb 29"myformat == Date(2024,2,29)
 ```
-More documentation can be obtained using `@doc TStr.@set_t_str_suffix`
+More documentation can be obtained using `@doc TStr.set_t_str_suffix`
 
 ## Feedback
 
