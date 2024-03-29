@@ -8,7 +8,7 @@ method for creating time constants. A convenience package to supplement the
 
 ```julia
 import Pkg
-Pkg.add("https://github.com/GHTaarn/TStr.jl")
+Pkg.add(url="https://github.com/GHTaarn/TStr.jl")
 ```
 
 ## Use
