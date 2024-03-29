@@ -18,3 +18,11 @@ end
     TStr.set_t_str_suffix(mysuffix, nothing)
     @test_throws KeyError t"2024 Feb 29"myformat
 end
+
+@testset "ZonedDateTime" begin
+    @test_throws KeyError t"2020-11-11T11:11:11.111Z"z
+    eval(Meta.parse("using TimeZones"))
+    if VERSION >= v"1.9.0-"
+        @test t"2020-11-11T11:11:11.111Z"z == ZonedDateTime("2020-11-11T11:11:11.111Z")
+    end
+end
