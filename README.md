@@ -2,7 +2,7 @@
 
 This is a [Julia](https://www.julialang.org) package implementing a shorthand
 method for creating time constants. A convenience package to supplement the
-[Dates](docs.julialang.org/en/v1/stdlib/Dates/) standard library.
+[Dates](https://docs.julialang.org/en/v1/stdlib/Dates/) standard library.
 
 ## Installation
 
@@ -25,6 +25,26 @@ More documentation can be obtained using `@doc @t_str`
 
 ### Advanced use
 
+#### Other default suffixes
+
+The `u` suffix denotes
+[Unix time](https://docs.julialang.org/en/v1/stdlib/Dates/#Dates.datetime2unix).
+There is also a package extension for the
+[TimeZones](https://github.com/JuliaTime/TimeZones.jl") package that maps the
+`z` suffix to `ZonedDateTime`, e.g.
+
+```julia
+using TStr
+
+@assert t"1970-01-01T00:01" == 60
+
+using TimeZones
+
+@assert t"2020-11-11T11:11:11.111Z"z == ZonedDateTime("2020-11-11T11:11:11.111Z")
+```
+
+#### Creating custom suffixes
+
 By default, only standard time format strings can be used, but it is possible
 to use custom time formats if a custom suffix is defined by using the
 `TStr.set_t_str_suffix` function, e.g.
@@ -42,5 +62,5 @@ More documentation can be obtained using `@doc TStr.set_t_str_suffix`
 
 ## Feedback
 
-Please report bugs and other issues at https://github.com/GHTaarn/TStr.jl/issues or
-submit a pull request.
+Please report bugs and other issues at https://github.com/GHTaarn/TStr.jl/issues
+or submit a pull request.
